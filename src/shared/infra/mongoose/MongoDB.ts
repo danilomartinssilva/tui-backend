@@ -4,7 +4,7 @@ class MongoDB {
   private client: mongoose.Mongoose | null = null;
 
   async connect(uri: string): Promise<mongoose.Mongoose> {
-    this.client = await mongoose.connect(uri, {});
+    this.client = await mongoose.connect(uri);
 
     console.log(`⚡️ MongoDB Connected`);
 

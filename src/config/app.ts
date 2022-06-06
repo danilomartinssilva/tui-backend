@@ -1,3 +1,4 @@
+import 'dotenv/config';
 export type AppConfig = {
   name: string;
   secret: string;

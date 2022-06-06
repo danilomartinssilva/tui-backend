@@ -21,6 +21,8 @@ services:
       - ${REDIS_PORT}:6379
     networks:
       - app-tier
+    volumes:
+      - ~/data-redis:/bitname/redis/data
 networks:
   app-tier:
     driver: bridge

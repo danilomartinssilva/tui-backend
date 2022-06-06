@@ -1,7 +1,7 @@
 import appConfig from '@config/app';
 import connectionUrl from '@shared/infra/mongoose/helpers/connectionUrl';
 import MongoDB from '@shared/infra/mongoose/MongoDB';
-import 'dotenv/config';
+import 'reflect-metadata';
 import app from './app';
 
 MongoDB.connect(connectionUrl());

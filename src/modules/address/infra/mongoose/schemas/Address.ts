@@ -1,5 +1,5 @@
 import mongoose, { Document, Model, Schema } from 'mongoose';
-
+import { v4 as uuid } from 'uuid';
 export type AddressAttributes = {
   _id: string;
   cityName: string;
@@ -13,7 +13,7 @@ type AddressModel = Model<AddressDocument>;
 
 const AddressSchema = new Schema(
   {
-    _id: { type: String, required: true },
+    _id: { type: String, required: true, default: uuid },
     cityName: { type: String, required: true },
     cityCode: { type: String, required: true },
     regionCode: { type: String, required: true },
@@ -22,10 +22,12 @@ const AddressSchema = new Schema(
     collection: 'address',
     strict: true,
     timestamps: true,
-    versionKey: true,
   },
 );
 
-const AddressMongoose = mongoose.connection
-  .useDb(process.env.MONGOOSE_DATABASE)
-  .model<AddressDocument, AddressModel>('Address', AddressSchema);
+const AddressMongoose = mongoose.model<AddressDocument, AddressModel>(
+  'Address',
+  AddressSchema,
+);
+
+export default AddressMongoose;

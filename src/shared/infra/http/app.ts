@@ -1,3 +1,4 @@
+import '@shared/container';
 import express from 'express';
 import routes from './routes';
 

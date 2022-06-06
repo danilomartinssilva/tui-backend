@@ -5,6 +5,5 @@ export default function connectionUrl(): string {
     ? `${mongodbConfig.username}:${mongodbConfig.password}@`
     : '';
 
-  return `mongodb://${userNameAndPasswordString}${mongodbConfig.host}:${mongodbConfig.port}/${mongodbConfig.database}?authSource=${mongodbConfig.authSource}`;
+  return `mongodb://${userNameAndPasswordString}${mongodbConfig.host}:${mongodbConfig.port}/${mongodbConfig.database}?authSource=admin&ssl=false`;
 }
-//mongodb://192.168.3.15:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false
