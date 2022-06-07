@@ -4,7 +4,13 @@ import IAddressRepository from '../IAddressRepository';
 export default class MongooseAddressRepository implements IAddressRepository {
   async all(): Promise<Address[]> {
     const response = await AddressMongoose.find();
-    console.log('response', response);
+    return response;
+  }
+  async create(address: Address[]): Promise<boolean> {
+    const response = await AddressMongoose.insertMany(address);
+    if (response) {
+      return true;
+    }
     return response;
   }
 }
