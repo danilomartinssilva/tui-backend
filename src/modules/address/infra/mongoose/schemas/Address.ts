@@ -17,6 +17,12 @@ const AddressSchema = new Schema(
     cityName: { type: String, required: true },
     cityCode: { type: String, required: true },
     regionCode: { type: String, required: true },
+    hotels: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Hotel',
+      },
+    ],
   },
   {
     collection: 'address',
