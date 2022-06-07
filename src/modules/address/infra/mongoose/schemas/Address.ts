@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 export type AddressAttributes = {
   _id: string;
   cityName: string;
+  countryName: string;
   cityCode: string;
   regionCode: string;
 };
@@ -16,6 +17,7 @@ const AddressSchema = new Schema(
     _id: { type: String, required: true, default: uuid },
     cityName: { type: String, required: true },
     cityCode: { type: String, required: true },
+    countryName: { type: String, required: true },
     regionCode: { type: String, required: true },
     hotels: [
       {

@@ -16,7 +16,7 @@ export default class HotelController {
       hotel,
       address_id,
     });
-    console.log('created', createdHotel);
+
     return response.status(201).send();
   }
 }

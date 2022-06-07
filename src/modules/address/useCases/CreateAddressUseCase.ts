@@ -6,6 +6,7 @@ interface Address {
   cityCode: string;
   regionCode: string;
   cityName: string;
+  countryName: string;
 }
 
 interface IRequest {

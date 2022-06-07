@@ -29,7 +29,6 @@ export default class MongooseAddressRepository implements IAddressRepository {
         },
       },
     );
-    console.log('###', response);
 
     if (response) {
       return true;
