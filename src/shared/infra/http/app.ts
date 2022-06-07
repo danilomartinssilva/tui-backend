@@ -1,6 +1,9 @@
 import '@shared/container';
+import handleErrors from '@shared/infra/http/middlweares/handleErrors';
+import { errors } from 'celebrate';
 import cors from 'cors';
 import express from 'express';
+import 'express-async-errors';
 import helmet from 'helmet';
 import { container } from 'tsyringe';
 import ILogger from '../logger/interfaces/ILogger';
@@ -15,6 +18,8 @@ app.use(express.urlencoded({ extended: false }));
 
 if (logger.http) app.use(logger.http());
 app.use(routes);
+app.use(errors());
+app.use(handleErrors);
 app.get('/status', (r, res) => res.status(200).json({ message: 'OK' }));
 
 export default app;
