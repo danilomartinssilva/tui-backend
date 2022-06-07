@@ -1,10 +1,6 @@
 import mongoose, { Document, Model, Schema } from 'mongoose';
-import { v4 as uuid } from 'uuid';
-,
-
 
 export type HotelAttributes = {
-  _id: string;
   chainCode: string;
   iataCode: string;
   name: string;
@@ -17,7 +13,6 @@ type HotelModel = Model<HotelDocument>;
 
 const HotelSchema = new Schema(
   {
-    _id: { type: String, required: true, default: uuid },
     chainCode: { type: String, required: true },
     iataCode: { type: String, required: true },
     name: { type: String, required: true },
