@@ -4,7 +4,6 @@ export type HotelAttributes = {
   chainCode: string;
   iataCode: string;
   name: string;
-  available: boolean;
 };
 
 export type HotelDocument = Document & HotelAttributes;
@@ -16,7 +15,13 @@ const HotelSchema = new Schema(
     chainCode: { type: String, required: true },
     iataCode: { type: String, required: true },
     name: { type: String, required: true },
-    available: { type: String, required: true },
+
+    offers: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Offer',
+      },
+    ],
   },
   {
     collection: 'hotel',

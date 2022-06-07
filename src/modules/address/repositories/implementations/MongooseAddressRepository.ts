@@ -1,9 +1,12 @@
 import AddressMongoose from '@modules/address/infra/mongoose/schemas/Address';
-import IAddressRepository, { IHotelRequest } from '../IAddressRepository';
+import IAddressRepository, {
+  IAddressFindQuery,
+  IHotelRequest,
+} from '../IAddressRepository';
 
 export default class MongooseAddressRepository implements IAddressRepository {
   async all(): Promise<Address[]> {
-    const response = await AddressMongoose.find().populate({ path: 'hotels' });
+    const response = await AddressMongoose.find();
     return response;
   }
   async create(address: Address[]): Promise<boolean> {
@@ -13,8 +16,23 @@ export default class MongooseAddressRepository implements IAddressRepository {
     }
     return response;
   }
+  async search(find: IAddressFindQuery): Promise<Address[]> {
+    const response = await AddressMongoose.find({
+      $or: [
+        {
+          countryName: new RegExp(find.term, 'g'),
+        },
+        {
+          cityName: new RegExp(find.term, 'g'),
+        },
+      ],
+    });
+    return response;
+  }
   async findById(id: string): Promise<Address | null> {
-    const response = await AddressMongoose.findOne({ _id: id });
+    const response = await AddressMongoose.findOne({ _id: id }).populate(
+      'hotels',
+    );
     if (response) return response;
     return null;
   }

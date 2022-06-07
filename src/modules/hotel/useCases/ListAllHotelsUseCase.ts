@@ -16,7 +16,7 @@ interface IRequest {
 }
 
 @injectable()
-export default class CreateHotelUseCase {
+export default class ListAllHotelsUseCase {
   constructor(
     @inject('logger') private logger: ILogger,
     @inject('HotelRepository') private hotelRepository: IHotelRepository,
