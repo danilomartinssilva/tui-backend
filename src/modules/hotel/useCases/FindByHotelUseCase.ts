@@ -26,7 +26,7 @@ export default class FindByHotelUseCase {
 
     const findByAddress = await this.hotelRepository.findById(id);
     if (!findByAddress) {
-      throw new AppError('Address not found.', {}, 404);
+      throw new AppError('Hotel not found.', {}, 404);
     }
 
     this.logger.log('info', 'checking isset hotel', { findByAddress });
