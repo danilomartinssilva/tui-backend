@@ -3,5 +3,5 @@ type Hotel = {
   iataCode: string;
   name: string;
 
-  _id: string;
+  _id?: string;
 };

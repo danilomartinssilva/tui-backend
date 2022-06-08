@@ -15,7 +15,10 @@ class PinoLogger implements ILogger {
       baseLogger ||
       pino({
         level,
-
+        prettyPrint:
+          process.env.NODE_ENV === 'production'
+            ? false
+            : { levelFirst: false, translateTime: true },
         name: 'Global',
         enabled: process.env.NODE_ENV !== 'testing',
         formatters: {
@@ -31,7 +34,7 @@ class PinoLogger implements ILogger {
     message: string,
     metadata?: Record<string, unknown>,
   ): void {
-    return this.logger[level]({ msg: message, ...metadata });
+    return this.logger.info({ msg: message, ...metadata });
   }
 
   child(bindings?: Record<string, unknown>): PinoLogger {
@@ -41,10 +44,7 @@ class PinoLogger implements ILogger {
   }
 
   http() {
-    return pinoHttp({
-      logger: this.logger,
-      genReqId: request => request.identifier,
-    });
+    return pinoHttp();
   }
 }
 

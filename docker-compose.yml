@@ -17,12 +17,19 @@ services:
       - app-tier
   redis_tui:
     image: 'redis:alpine'
+    restart: "always"
     ports:
       - ${REDIS_PORT}:6379
     networks:
       - app-tier
     volumes:
       - ~/data-redis:/bitname/redis/data
+  back_tui:
+    build: .
+    ports:
+      - ${PORT}:${PORT}
+    networks:
+      - app-tier
 networks:
   app-tier:
     driver: bridge

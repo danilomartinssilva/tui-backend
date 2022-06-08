@@ -1,6 +1,5 @@
-// For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
-const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const { pathsToModuleNameMapper } = require('ts-jest');
 
 const { compilerOptions } = require('./tsconfig.json');
 
@@ -14,7 +13,6 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   coverageReporters: ['text-summary', 'lcov'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>',
   }),

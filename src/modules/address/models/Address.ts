@@ -1,5 +1,5 @@
 type Address = {
-  _id: string;
+  _id?: string;
   cityName: string;
   countryName: string;
   cityCode: string;

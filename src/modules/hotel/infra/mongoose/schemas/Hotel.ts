@@ -4,6 +4,7 @@ export type HotelAttributes = {
   chainCode: string;
   iataCode: string;
   name: string;
+  _id?: string;
 };
 
 export type HotelDocument = Document & HotelAttributes;

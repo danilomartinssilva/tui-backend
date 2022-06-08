@@ -24,13 +24,13 @@ export default class FindByHotelUseCase {
   public async execute(id: string): Promise<Hotel | any> {
     this.logger.log('info', 'checking isset hotel', { id });
 
-    const findByAddress = await this.hotelRepository.findById(id);
-    if (!findByAddress) {
+    const findByHotel = await this.hotelRepository.findById(id);
+    if (!findByHotel) {
       throw new AppError('Hotel not found.', {}, 404);
     }
 
-    this.logger.log('info', 'checking isset hotel', { findByAddress });
+    this.logger.log('info', 'checking isset hotel', { findByHotel });
 
-    return findByAddress;
+    return findByHotel;
   }
 }

@@ -39,7 +39,7 @@ export default class ListAllHotelsUseCase {
     if (!addedHotel) {
       throw new AppError('Address - not found.');
     }
-    const hotel_ids = addedHotel?.map(item => item._id);
+    const hotel_ids = addedHotel?.map(item => item._id || '');
     this.logger.log('info', 'created hotel', { addedHotel });
 
     this.logger.log('info', 'adding to address valid', { hotel_ids });

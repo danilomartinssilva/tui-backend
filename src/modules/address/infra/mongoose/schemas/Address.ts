@@ -1,7 +1,7 @@
 import mongoose, { Document, Model, Schema } from 'mongoose';
 import { v4 as uuid } from 'uuid';
 export type AddressAttributes = {
-  _id: string;
+  _id?: string;
   cityName: string;
   countryName: string;
   cityCode: string;
