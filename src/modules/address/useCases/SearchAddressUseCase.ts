@@ -20,8 +20,13 @@ export default class SearchAddressUseCase {
     if (!query.term.trim().length) {
       throw new AppError('Error by search address', {}, 500);
     }
-    const cache = await getRedis(JSON.stringify({ address: query.term }));
-    if (cache) return JSON.parse(cache);
+    const cacheAddress = await getRedis(
+      JSON.stringify({ address: query.term }),
+    );
+    if (cacheAddress) {
+      this.logger.log('info', 'cache address', { cacheAddress });
+      return JSON.parse(cacheAddress);
+    }
 
     const response = await this.addressRepository.search(query);
     setRedis(JSON.stringify({ address: query.term }), JSON.stringify(response));

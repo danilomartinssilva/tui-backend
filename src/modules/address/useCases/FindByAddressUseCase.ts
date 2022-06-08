@@ -16,6 +16,9 @@ export default class FindByAddressUseCase {
       throw new AppError('Error by search address', {}, 500);
     }
     const response = await this.addressRepository.findById(id);
+    if (!response) {
+      throw new AppError('Address not found', {}, 404);
+    }
     this.logger.log('info', 'listing address', { response });
     return response;
   }
