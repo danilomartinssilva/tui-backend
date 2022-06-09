@@ -11,6 +11,10 @@
      {
         "url":"http://localhost:8092/api/v1/",
         "description":"API local"
+     },
+     {
+        "url":"http://164.92.209.125:8092/api/v1/",
+        "description":"API Prod"
      }
   ],
   "paths":{
