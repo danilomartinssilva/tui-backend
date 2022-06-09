@@ -15,3 +15,9 @@ Acessar documentação: [TUI-BACKEND](http://164.92.209.125/)
 - Docker
 - Redis
 - Jest
+- Mongoose
+- Chance
+- Swagger
+- Reflect-metada
+- Pino
+- Logger
