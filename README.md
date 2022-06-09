@@ -23,3 +23,4 @@ Para contribuir após clonado o repositório
 - Reflect-metada
 - Pino
 - Logger
+- OpenTelemetery + NewRelic(Ainda em testes)
