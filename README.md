@@ -8,7 +8,8 @@ Atividade desenvolvida como teste para empresa TUI.
 Para contribuir após clonado o repositório
 ``` docker-compose up -d ```
 ## Acesso
-- Acessar documentação: [TUI-BACKEND](http://164.92.209.125/)
+- Acessar documentação: [TUI-BACKEND](http://164.92.209.125/) 
+- No Swagger selecionar o servidor de produção
 - Acessar api: [TUI-BACKEND](http://164.92.209.125/api/v1)
 ## Ferramentas utilizdas
 - Typescript
